@@ -15,6 +15,11 @@ interface BaseButtonProps {
   children: React.ReactNode;
   href?: string;
 }
+/**
+ ButtonHTMLAttributes<HTMLElement> react提供了button标签的原生属性
+ AnchorHTMLAttributes<HTMLElement> react提供了a标签的原生属性
+ typeScript中的Partial 将属性变成可选的
+ */
 type NativeButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLElement>
 type AnchorButtonProps = BaseButtonProps & AnchorHTMLAttributes<HTMLElement>
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>
@@ -36,7 +41,7 @@ export const Button: FC<ButtonProps> = (props) => {
     href,
     ...restProps
   } = props
-  // btn, btn-lg, btn-primary
+  // btn, btn-large, btn-primary
   const classes = classNames('btn', className, {
     [`btn-${buttonType}`]: buttonType,
     [`btn-${size}`]: size,
