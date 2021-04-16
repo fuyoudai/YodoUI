@@ -2,7 +2,7 @@ import React from 'react';
 import Button from './components/Button/button'
 import Menu from './components/Menu/menu'
 import MenuItem from './components/Menu/menuItem'
-import './App.css'
+// import './App.css'
 
 function App() {
   return (
