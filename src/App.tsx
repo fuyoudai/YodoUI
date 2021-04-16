@@ -1,5 +1,7 @@
 import React from 'react';
 import Button from './components/Button/button'
+import Menu from './components/Menu/menu'
+import MenuItem from './components/Menu/menuItem'
 import './App.css'
 
 function App() {
@@ -8,17 +10,11 @@ function App() {
       <Button size="large" className="custom">按钮</Button>
       <Button buttonType="primary" size="small" autoFocus>按钮</Button>
       <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Menu>
+          <MenuItem>link1</MenuItem>
+          <MenuItem>link2</MenuItem>
+          <MenuItem>link3</MenuItem>
+        </Menu>
       </header>
     </div>
   );
