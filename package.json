@@ -18,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "npm run clean && npm run build-ts && npm run build-css",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-ts": "tsc -p tsconfig.build.json",
@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "classnames": "^2.3.1",
     "node-sass": "^5.0.0"
   }
