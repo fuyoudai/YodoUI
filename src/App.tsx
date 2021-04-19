@@ -3,6 +3,7 @@ import Button from './components/Button/button'
 import Menu from './components/Menu/menu'
 import MenuItem from './components/Menu/menuItem'
 import SubMenu from './components/Menu/subMenu'
+import Input from './components/Input/input'
 // import './App.css'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <MenuItem>link3</MenuItem>
         </Menu>
       </header>
+      <Input />
     </div>
   );
 }
