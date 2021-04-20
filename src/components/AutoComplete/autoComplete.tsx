@@ -3,8 +3,8 @@ import classNames from 'classnames'
 import Input, { InputProps } from '../Input/input'
 import Icon from '../Icon/icon'
 import Transition from '../Transition/transition'
-// import useDebounce from '../../hooks/useDebounce'
-// import useClickOutside from '../../hooks/useClickOutside'
+import useDebounce from '../../hooks/useDebounce'
+import useClickOutside from '../../hooks/useClickOutside'
 interface DataSourceObject {
   value: string;
 }
@@ -31,33 +31,33 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
   const [ highlightIndex, setHighlightIndex] = useState(-1)
   const triggerSearch = useRef(false)
   const componentRef = useRef<HTMLDivElement>(null)
-  // const debouncedValue = useDebounce(inputValue, 300)
-  // // useClickOutside(componentRef, () => { setSugestions([])})
-  // useEffect(() => {
-  //   if (debouncedValue && triggerSearch.current) {
-  //     setSugestions([])
-  //     const results = fetchSuggestions(debouncedValue)
-  //     if (results instanceof Promise) {
-  //       setLoading(true)
-  //       results.then(data => {
-  //         setLoading(false)
-  //         setSugestions(data)
-  //         if (data.length > 0) {
-  //           setShowDropdown(true)
-  //         }
-  //       })
-  //     } else {
-  //       setSugestions(results)
-  //       setShowDropdown(true)
-  //       if (results.length > 0) {
-  //         setShowDropdown(true)
-  //       } 
-  //     }
-  //   } else {
-  //     setShowDropdown(false)
-  //   }
-  //   setHighlightIndex(-1)
-  // }, [debouncedValue, fetchSuggestions])
+  const debouncedValue = useDebounce(inputValue, 300)
+  useClickOutside(componentRef, () => { setSugestions([])})
+  useEffect(() => {
+    if (debouncedValue && triggerSearch.current) {
+      setSugestions([])
+      const results = fetchSuggestions(debouncedValue)
+      if (results instanceof Promise) {
+        setLoading(true)
+        results.then(data => {
+          setLoading(false)
+          setSugestions(data)
+          if (data.length > 0) {
+            setShowDropdown(true)
+          }
+        })
+      } else {
+        setSugestions(results)
+        setShowDropdown(true)
+        if (results.length > 0) {
+          setShowDropdown(true)
+        } 
+      }
+    } else {
+      setShowDropdown(false)
+    }
+    setHighlightIndex(-1)
+  }, [debouncedValue, fetchSuggestions])
 
   const highlight = (index: number) => {
     if (index < 0) index = 0
@@ -113,7 +113,7 @@ export const AutoComplete: FC<AutoCompleteProps> = (props) => {
         <ul className="viking-suggestion-list">
           { loading &&
             <div className="suggstions-loading-icon">
-              <Icon icon="spinner" spin/>
+              <Icon icon="spinner" spin />
             </div>
           }
           {suggestions.map((item, index) => {
