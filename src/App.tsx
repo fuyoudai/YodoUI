@@ -4,6 +4,7 @@ import Menu from './components/Menu/menu'
 import MenuItem from './components/Menu/menuItem'
 import SubMenu from './components/Menu/subMenu'
 import Input from './components/Input/input'
+import Progress from './components/Progress/progress'
 // import './App.css'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         </Menu>
       </header>
       <Input />
+      <Progress percent={20} />
     </div>
   );
 }
