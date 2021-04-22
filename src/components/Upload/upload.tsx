@@ -1,6 +1,6 @@
 import React, { FC, useRef, ChangeEvent, useState } from 'react'
 import axios from 'axios'
-// import UploadList from './uploadList'
+import UploadList from './uploadList'
 // import Dragger from './dragger'
 export type UploadFileStatus = 'ready' | 'uploading' | 'success' | 'error'
 export interface UploadFile {
@@ -181,10 +181,10 @@ export const Upload: FC<UploadProps> = (props) => {
         />
       </div>
 
-      {/* <UploadList 
+      <UploadList 
         fileList={fileList}
         onRemove={handleRemove}
-      /> */}
+      />
     </div>
   )
 }
