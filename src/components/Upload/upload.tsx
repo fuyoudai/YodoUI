@@ -1,7 +1,7 @@
 import React, { FC, useRef, ChangeEvent, useState } from 'react'
 import axios from 'axios'
 import UploadList from './uploadList'
-// import Dragger from './dragger'
+import Dragger from './dragger'
 export type UploadFileStatus = 'ready' | 'uploading' | 'success' | 'error'
 export interface UploadFile {
   uid: string;
@@ -164,12 +164,12 @@ export const Upload: FC<UploadProps> = (props) => {
       <div className="viking-upload-input"
         style={{display: 'inline-block'}}
         onClick={handleClick}>
-          {/* {drag ? 
+          {drag ? 
             <Dragger onFile={(files) => {uploadFiles(files)}}>
               {children}
             </Dragger>:
             children
-          } */}
+          }
         <input
           className="viking-file-input"
           style={{display: 'none'}}
