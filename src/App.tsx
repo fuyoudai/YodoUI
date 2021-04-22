@@ -6,6 +6,8 @@ import SubMenu from './components/Menu/subMenu'
 import Input from './components/Input/input'
 import AutoComplete from './components/AutoComplete/autoComplete'
 import Progress from './components/Progress/progress'
+import Upload from './components/Upload/upload'
+import Icon from './components/Icon/icon'
 import './App.css'
 
 function App() {
@@ -36,6 +38,16 @@ function App() {
       </header>
       <Input />
       <Progress percent={20} />
+      <Upload
+        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+        name="fileName"
+        multiple
+        drag
+      >
+        <Icon icon="upload" size="5x" theme="secondary" />
+        <br/>
+        <p>拖动上传</p>
+      </Upload>
     </div>
   );
 }
