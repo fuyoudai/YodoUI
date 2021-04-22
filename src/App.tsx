@@ -4,12 +4,24 @@ import Menu from './components/Menu/menu'
 import MenuItem from './components/Menu/menuItem'
 import SubMenu from './components/Menu/subMenu'
 import Input from './components/Input/input'
+import AutoComplete from './components/AutoComplete/autoComplete'
 import Progress from './components/Progress/progress'
-// import './App.css'
+import './App.css'
 
 function App() {
+
+  const handleFetch = (query: string) => {
+    return fetch(`https://api.github.com/search/users?q=${query}`)
+      .then(res => res.json())
+      .then(({ items }) => {
+        console.log(items)
+        return items.slice(0, 10).map((item: any) => ({ value: item.login, ...item}))
+      })
+  }
+
   return (
     <div className="App">
+      <AutoComplete fetchSuggestions={handleFetch} />
       <Button size="large" className="custom">按钮</Button>
       <Button buttonType="primary" size="small" autoFocus>按钮</Button>
       <header className="App-header">
