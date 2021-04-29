@@ -1,7 +1,7 @@
 module.exports = {
   title: 'YodoUI', // 网站标题， 可以不用设置，默认为文档所在的目录名称
   // 网站描述，用于生成seo搜索和首页的描述。
-  description: 'My first UI app',
+  description: '这是一套 react UI 组件库',
   // 一般展示在首页和左上角
   logo: '/favicon.png',
   // 网站首页底部的文字，支持html格式
