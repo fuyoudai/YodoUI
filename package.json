@@ -28,9 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-ts": "tsc -p tsconfig.build.json",
-    "build-css": "node-sass ./src/styles/index.scss ./dist/index.css",
-    "docs:dev": "rcpress dev docs",
-    "docs:build": "rcpress build docs"
+    "build-css": "node-sass ./src/styles/index.scss ./dist/index.css"
   },
   "eslintConfig": {
     "extends": [
